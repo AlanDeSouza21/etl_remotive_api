@@ -1,1 +1,25 @@
+# Ambiente virtual
+.venv/
+
+# Airflow
+logs/
+out/
+__pycache__/
+dags/__pycache__/
+
+# Variáveis de ambiente (NUNCA subir isso!)
 .env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Python
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/

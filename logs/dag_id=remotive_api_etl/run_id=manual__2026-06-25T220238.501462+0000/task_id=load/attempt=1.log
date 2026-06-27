@@ -1,0 +1,13 @@
+{"timestamp":"2026-06-26T12:06:19.385819Z","level":"info","event":"DAG bundles loaded: dags-folder, example_dags","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager","filename":"manager.py","lineno":179}
+{"timestamp":"2026-06-26T12:06:19.416343Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/etl_notebook_dag.py","logger":"airflow.models.dagbag.BundleDagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-06-26T12:06:19.440745Z","level":"warning","event":"The `airflow.decorators.dag` attribute is deprecated. Please use `'airflow.sdk.dag'`.","category":"DeprecatedImportWarning","filename":"/opt/airflow/dags/etl_notebook_dag.py","lineno":2,"logger":"py.warnings"}
+{"timestamp":"2026-06-26T12:06:19.440897Z","level":"warning","event":"The `airflow.decorators.task` attribute is deprecated. Please use `'airflow.sdk.task'`.","category":"DeprecatedImportWarning","filename":"/opt/airflow/dags/etl_notebook_dag.py","lineno":2,"logger":"py.warnings"}
+{"timestamp":"2026-06-26T12:06:19.513892Z","level":"info","event":"Task instance is in running state","logger":"task.stdout"}
+{"timestamp":"2026-06-26T12:06:19.514227Z","level":"info","event":" Previous state of the Task instance: TaskInstanceState.QUEUED","logger":"task.stdout"}
+{"timestamp":"2026-06-26T12:06:19.514518Z","level":"info","event":"Current task name:load","logger":"task.stdout"}
+{"timestamp":"2026-06-26T12:06:19.514727Z","level":"info","event":"Dag name:remotive_api_etl","logger":"task.stdout"}
+{"timestamp":"2026-06-26T12:06:19.515545Z","level":"info","event":"carregar","logger":"task.stdout"}
+{"timestamp":"2026-06-26T12:06:19.515935Z","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.decorators.python._PythonDecoratedOperator","filename":"python.py","lineno":230}
+{"timestamp":"2026-06-26T12:06:19.542196Z","level":"info","event":"Task instance in success state","logger":"task.stdout"}
+{"timestamp":"2026-06-26T12:06:19.542533Z","level":"info","event":" Previous state of the Task instance: TaskInstanceState.RUNNING","logger":"task.stdout"}
+{"timestamp":"2026-06-26T12:06:19.542853Z","level":"info","event":"Task operator:<Task(_PythonDecoratedOperator): load>","logger":"task.stdout"}
