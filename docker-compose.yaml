@@ -78,8 +78,8 @@ x-airflow-common: &airflow-common
     - ${AIRFLOW_PROJ_DIR:-.}/logs:/opt/airflow/logs
     - ${AIRFLOW_PROJ_DIR:-.}/config:/opt/airflow/config
     - ${AIRFLOW_PROJ_DIR:-.}/plugins:/opt/airflow/plugins
-    - ${AIRFLOW_PROJ_DIR:-.}/main.ipynb:/opt/airflow/notebooks/main.ipynb # ← ADICIONAR
-    - ${AIRFLOW_PROJ_DIR:-.}/out:/opt/airflow/notebooks/out # ← ADICIONAR
+    - ${AIRFLOW_PROJ_DIR:-.}/main.ipynb:/opt/airflow/notebooks/main.ipynb
+    - ${AIRFLOW_PROJ_DIR:-.}/out:/opt/airflow/notebooks/out
   user: "${AIRFLOW_UID:-50000}:0"
   depends_on: &airflow-common-depends-on
     redis:
@@ -88,6 +88,16 @@ x-airflow-common: &airflow-common
       condition: service_healthy
 
 services:
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "3307:3306"
+
   postgres:
     image: postgres:16
     environment:
@@ -181,6 +191,11 @@ services:
       retries: 5
       start_period: 30s
     environment:
+      DB_HOST: ${DB_HOST}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_NAME: ${DB_NAME}
+      DB_CHARSET: ${DB_CHARSET}
       <<: *airflow-common-env
       # Required to handle warm shutdown of the celery workers properly
       # See https://airflow.apache.org/docs/docker-stack/entrypoint.html#signal-propagation

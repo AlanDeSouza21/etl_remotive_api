@@ -23,3 +23,5 @@ Thumbs.db
 *.egg-info/
 dist/
 build/
+
+dags/VagasDados_remotive_api.json
